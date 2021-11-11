@@ -1,10 +1,13 @@
 ﻿using Autofac;
 using AutoMapper;
+using LocadoraVeiculos.Aplicacao.CupomModule;
+using LocadoraVeiculos.Aplicacao.ParceiroModule;
 using LocadoraVeiculos.Infra.ORM;
 using LocadoraVeiculos.Infra.ORM.Modules.CupomModule;
 using LocadoraVeiculos.Infra.ORM.Modules.ParceiroModule;
 using LocadoraVeiculos.netCore.Dominio.CupomModule;
 using LocadoraVeiculos.netCore.Dominio.ParceiroModule;
+
 
 namespace LocadoraVeiculos.WebApplication.Autofac
 {
@@ -17,6 +20,10 @@ namespace LocadoraVeiculos.WebApplication.Autofac
             builder.RegisterType<ParceiroRepositoryEF>().As<IParceiroRepository>();
 
             builder.RegisterType<CupomRepositoryEF>().As<ICupomRepository>();
+
+            builder.RegisterType<ParceiroAppService>();
+
+            builder.RegisterType<CupomAppService>();
 
             builder.RegisterType<Mapper>().As<IMapper>();
         }
