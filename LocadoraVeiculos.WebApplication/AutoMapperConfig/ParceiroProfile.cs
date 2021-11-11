@@ -41,7 +41,7 @@ namespace LocadoraVeiculos.WebApplication.AutoMapperConfig
         private void ConfigurarConversaoDeViewModelParaDominio()
         {
                
-            //CreateMap<ParceiroCreateViewModel, Parceiro>();
+            CreateMap<ParceiroCreateViewModel, Parceiro>();
 
             //CreateMap<ParceiroEditViewModel, Parceiro>();
         }

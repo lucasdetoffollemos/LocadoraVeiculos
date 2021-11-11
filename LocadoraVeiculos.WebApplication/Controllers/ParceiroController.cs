@@ -51,22 +51,22 @@ namespace LocadoraVeiculos.WebApplication.Controllers
         // GET: ParceiroController/Create
         public ActionResult Create()
         {
-            return View();
+            var parceiroCreateVM = new ParceiroCreateViewModel();
+
+            return View(parceiroCreateVM);
         }
 
         // POST: ParceiroController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(ParceiroCreateViewModel parceiroVm)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            Parceiro parceiro = mapper.Map<Parceiro>(parceiroVm);
+
+            parceiroAppService.InserirNovo(parceiro);
+
+            return RedirectToAction("Index");
+            
         }
 
         // GET: ParceiroController/Edit/5

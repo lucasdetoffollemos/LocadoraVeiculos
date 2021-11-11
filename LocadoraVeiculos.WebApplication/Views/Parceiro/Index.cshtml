@@ -1,13 +1,12 @@
 ﻿@model LocadoraVeiculos.WebApplication.ViewModels.ParceiroIndexViewModel
 
-@{
-    ViewData["Title"] = "Index";
+@section Header {
+
+    @{await Html.RenderPartialAsync("_Header");}
 }
 
-<h1>Index</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Novo parceiro</a>
 </p>
 <table class="table">
     <thead>
@@ -22,21 +21,22 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.registros) {
-        <tr>
-            <th scope="row">
-                <label>@item.Id</label>
-            </th>
-            <td>
-                <label>@item.Nome</label>
-            </td>
-            
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.registros)
+        {
+            <tr>
+                <th scope="row">
+                    <label>@item.Id</label>
+                </th>
+                <td>
+                    <label>@item.Nome</label>
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
